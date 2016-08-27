@@ -37,18 +37,18 @@ export default class Line extends FabricObject {
 
 }
 
-Circle.fromElement = (element, options) => fabric.Line.fromElement(element, options);
-Circle.fromObject = (object) => fabric.Line.fromObject(object);
-Circle.attribute = fabric.Line.ATTRIBUTE_NAMES;
+Line.fromElement = (element, options) => fabric.Line.fromElement(element, options);
+Line.fromObject = (object) => fabric.Line.fromObject(object);
+Line.attribute = fabric.Line.ATTRIBUTE_NAMES;
 
-Circle.propTypes = Object.assign(FabricObject.propTypes, {
+Line.propTypes = Object.assign(FabricObject.propTypes, {
 	x1: PropTypes.number,
 	y1: PropTypes.number,
 	x2: PropTypes.number,
 	y2: PropTypes.number,
 });
 
-Circle.defaultProps = Object.assign(FabricObject.defaultProps, {
+Line.defaultProps = Object.assign(FabricObject.defaultProps, {
 	type: 'line',
 	x1: 0,
 	y1: 0,
