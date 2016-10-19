@@ -2,7 +2,7 @@
 
 import React, {PropTypes} from 'react';
 import FabricObject from '../base/Object.jsx';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 const PI = Math.PI;
 
 export default class Circle extends FabricObject {

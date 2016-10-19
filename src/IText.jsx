@@ -2,7 +2,7 @@
 
 import {PropTypes} from 'react';
 import Text from './Text';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 
 export default class IText extends Text {
 	constructor(props, context) {

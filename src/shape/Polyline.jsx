@@ -2,7 +2,7 @@
 
 import {PropTypes} from 'react';
 import FabricObject from '../base/Object.jsx';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 
 export default class Polyline extends FabricObject {
 	constructor(props, context) {

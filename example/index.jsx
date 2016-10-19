@@ -3,7 +3,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import './style.scss';
-// import {fabric} from 'fabric-webpack';
+// import {fabric} from 'fabric';
 
 import Canvas from 'react-fabricjs/Canvas';
 import Circle from 'react-fabricjs/shape/Circle';
