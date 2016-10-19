@@ -51,13 +51,13 @@ Path.fromElement = (element, callback, options) => fabric.Path.fromElement(eleme
 Path.fromObject = (object, callback) => fabric.Path.fromObject(object, callback);
 Path.attribute = fabric.Path.ATTRIBUTE_NAMES;
 
-Path.propTypes = Object.assign(FabricObject.propTypes, {
+Path.propTypes = Object.assign({}, FabricObject.propTypes, {
 	path: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 	minX: PropTypes.number,
 	minY: PropTypes.number,
 });
 
-Path.defaultProps = Object.assign(FabricObject.defaultProps, {
+Path.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'path',
 	path: null,
 	minX: 0,

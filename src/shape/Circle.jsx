@@ -52,13 +52,13 @@ Circle.fromElement = (element, options) => fabric.Circle.fromElement(element, op
 Circle.fromObject = (object) => fabric.Circle.fromObject(object);
 Circle.attribute = fabric.Circle.ATTRIBUTE_NAMES;
 
-Circle.propTypes = Object.assign(FabricObject.propTypes, {
+Circle.propTypes = Object.assign({}, FabricObject.propTypes, {
 	endAngle: PropTypes.number,
 	radius: PropTypes.number,
 	startAngle: PropTypes.number,
 });
 
-Circle.defaultProps = Object.assign(FabricObject.defaultProps, {
+Circle.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	endAngle: 2 * PI,
 	radius: 0,
 	startAngle: 0,

@@ -65,7 +65,7 @@ PathGroup.fromElement = (element, callback, options) => fabric.PathGroup.fromEle
 PathGroup.fromObject = (object, callback) => fabric.PathGroup.fromObject(object, callback);
 PathGroup.attribute = fabric.PathGroup.ATTRIBUTE_NAMES;
 
-PathGroup.defaultProps = Object.assign(Path.defaultProps, {
+PathGroup.defaultProps = Object.assign({}, Path.defaultProps, {
 	type: 'path-group',
 	fill: '',
 });

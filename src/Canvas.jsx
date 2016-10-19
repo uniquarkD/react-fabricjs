@@ -47,7 +47,7 @@ export default class Canvas extends StaticCanvas {
 	}
 }
 
-Canvas.propTypes = Object.assign(StaticCanvas.propTypes, {
+Canvas.propTypes = Object.assign({}, StaticCanvas.propTypes, {
 	uniScaleTransform: PropTypes.bool,
 	centeredScaling: PropTypes.bool,
 	centeredRotation: PropTypes.bool,
@@ -69,7 +69,7 @@ Canvas.propTypes = Object.assign(StaticCanvas.propTypes, {
 	isDrawingMode: PropTypes.bool,
 });
 
-Canvas.defaultProps = Object.assign(StaticCanvas.defaultProps, {
+Canvas.defaultProps = Object.assign({}, StaticCanvas.defaultProps, {
 	uniScaleTransform: false,
 	centeredScaling: false,
 	centeredRotation: false,

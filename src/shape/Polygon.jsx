@@ -41,13 +41,13 @@ Polygon.fromElement = (element, options) => fabric.Polygon.fromElement(element, 
 Polygon.fromObject = (object) => fabric.Polygon.fromObject(object);
 Polygon.attribute = fabric.Polygon.ATTRIBUTE_NAMES;
 
-Polygon.propTypes = Object.assign(FabricObject.propTypes, {
+Polygon.propTypes = Object.assign({}, FabricObject.propTypes, {
 	points: PropTypes.array,
 	minX: PropTypes.number,
 	minY: PropTypes.number,
 });
 
-Polygon.defaultProps = Object.assign(FabricObject.defaultProps, {
+Polygon.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'polygon',
 	points: null,
 	minX: 0,

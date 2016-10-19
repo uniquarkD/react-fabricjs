@@ -42,7 +42,7 @@ Text.defaultSvgFontSize = fabric.Text.DEFAULT_SVG_FONT_SIZE;
 Text.fromElement = (element, options) => fabric.Text.fromElement(element, options);
 Text.fromObject = (object) => fabric.Text.fromObject(object);
 
-Text.propTypes = Object.assign(FabricObject.propTypes, {
+Text.propTypes = Object.assign({}, FabricObject.propTypes, {
 	fontSize: PropTypes.number,
 	fontWeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	fontFamily: PropTypes.string,
@@ -53,7 +53,7 @@ Text.propTypes = Object.assign(FabricObject.propTypes, {
 	textBackgroundColor: PropTypes.string,
 });
 
-Text.defaultProps = Object.assign(FabricObject.defaultProps, {
+Text.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'text',
 	stateProperties: FabricObject.defaultProps.stateProperties.concat(['fontFamily',
 		'fontWeight',

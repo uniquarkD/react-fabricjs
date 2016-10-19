@@ -97,7 +97,7 @@ export default class IText extends Text {
 }
 IText.fromObject = (object) => fabric.IText.fromObject(object);
 
-IText.propTypes = Object.assign(Text.propTypes, {
+IText.propTypes = Object.assign({}, Text.propTypes, {
 	selectionStart: PropTypes.number,
 	selectionEnd: PropTypes.number,
 	selectionColor: PropTypes.string,
@@ -112,7 +112,7 @@ IText.propTypes = Object.assign(Text.propTypes, {
 	caching: PropTypes.bool,
 });
 
-IText.defaultProps = Object.assign(Text.defaultProps, {
+IText.defaultProps = Object.assign({}, Text.defaultProps, {
 	type: 'i-text',
 	selectionStart: 0,
 	selectionEnd: 0,

@@ -39,12 +39,12 @@ Rect.fromElement = (element, options) => fabric.Rect.fromElement(element, option
 Rect.fromObject = (object) => fabric.Rect.fromObject(object);
 Rect.attribute = fabric.Rect.ATTRIBUTE_NAMES;
 
-Rect.propTypes = Object.assign(FabricObject.propTypes, {
+Rect.propTypes = Object.assign({}, FabricObject.propTypes, {
 	rx: PropTypes.number,
 	ry: PropTypes.number,
 });
 
-Rect.defaultProps = Object.assign(FabricObject.defaultProps, {
+Rect.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'rect',
 	rx: 0,
 	ry: 0,

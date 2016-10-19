@@ -35,7 +35,7 @@ export default class Triangle extends FabricObject {
 
 Triangle.fromObject = (object) => fabric.Triangle.fromObject(object);
 
-Triangle.propTypes = FabricObject.propTypes;
-Triangle.defaultProps = Object.assign(FabricObject.defaultProps, {
+Triangle.propTypes = Object.assign({}, FabricObject.propTypes);
+Triangle.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'triangle',
 });

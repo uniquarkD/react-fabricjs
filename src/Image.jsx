@@ -69,14 +69,14 @@ Image.attribute = fabric.Image.ATTRIBUTE_NAMES;
 Image.async = true;
 Image.pngCompression = 1;
 
-Image.propTypes = Object.assign(FabricObject.propTypes, {
+Image.propTypes = Object.assign({}, FabricObject.propTypes, {
 	crossOrigin: PropTypes.oneOf(['', 'anonymous', 'use-credentials']),
 	alignX: PropTypes.oneOf(['none', 'mid', 'min', 'max']),
 	alignY: PropTypes.oneOf(['none', 'mid', 'min', 'max']),
 	meetOrSlice: PropTypes.oneOf(['meet', 'slice']),
 });
 
-Image.defaultProps = Object.assign(FabricObject.defaultProps, {
+Image.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'image',
 	crossOrigin: '',
 	alignX: 'none',
