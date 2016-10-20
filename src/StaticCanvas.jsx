@@ -185,13 +185,22 @@ export default class StaticCanvas extends React.Component {
 
 					const key = child.ref ? child.ref : `layer${i}`;
 					const ref = this.ref[key];
-					ref.draw(obj => this.add(obj));
+					ref.draw(obj => {
+						// because this callback is called asynchronously, if multiple updates occur in quick
+						// succession then it's possible we'll attempt to remove an object (below) before it has been
+						// added (here) - the result of which is duplicate objects on the canvas
+						if (!obj.doNotAdd) {
+							this.add(obj);
+						}
+					});
 				}
 			);
 
 			Object.keys(this.prevRef).forEach(key => {
-				const ref = this.prevRef[key];
-				this.remove(ref.getObject());
+				const object = this.prevRef[key].getObject();
+				// in case this object hasn't actually been added yet, set a flag so that we don't add it later
+				object.doNotAdd = true;
+				this.remove(object);
 			});
 		}
 
