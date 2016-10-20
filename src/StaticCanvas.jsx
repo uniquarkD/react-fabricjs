@@ -277,19 +277,23 @@ export default class StaticCanvas extends React.Component {
 		return (
 			<div>
 				<canvas id={id} width={this.props.width} height={this.props.height}/>
-				{
-					this.state.canvas &&
-					React.Children.map(
-						children,
-						(child, i) => child && React.cloneElement(child, {
-							ref: c => {
-								if (c) {
-									this.ref[child.ref||`layer${i}`] = c;
-								}
-							},
-						})
-					)
-				}
+
+				<div>
+					{
+						this.state.canvas &&
+						React.Children.map(
+							children,
+							(child, i) => child && React.cloneElement(child, {
+								ref: c => {
+									if (c) {
+										this.ref[child.ref||`layer${i}`] = c;
+									}
+								},
+							})
+						)
+					}
+				</div>
+
 			</div>
 		);
 

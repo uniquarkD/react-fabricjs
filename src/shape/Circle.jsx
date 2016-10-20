@@ -41,11 +41,6 @@ export default class Circle extends FabricObject {
 
 		super.draw(object, cb);
 	}
-
-	render() {
-		return <div />;
-	}
-
 }
 
 Circle.fromElement = (element, options) => fabric.Circle.fromElement(element, options);
