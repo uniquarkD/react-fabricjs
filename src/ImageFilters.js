@@ -1,6 +1,6 @@
 'use strict';
 
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 
 export const BaseFilter = fabric.Image.filters.BaseFilter;
 export const Brightness = fabric.Image.filters.Brightness;

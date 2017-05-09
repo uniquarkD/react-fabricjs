@@ -2,7 +2,7 @@
 
 import {PropTypes} from 'react';
 import FabricObject from '../base/Object.jsx';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 
 export default class Polyline extends FabricObject {
 	constructor(props, context) {
@@ -39,13 +39,13 @@ Polyline.fromElement = (element, options) => fabric.Polyline.fromElement(element
 Polyline.fromObject = (object) => fabric.Polyline.fromObject(object);
 Polyline.attribute = fabric.Polyline.ATTRIBUTE_NAMES;
 
-Polyline.propTypes = Object.assign(FabricObject.propTypes, {
+Polyline.propTypes = Object.assign({}, FabricObject.propTypes, {
 	points: PropTypes.array,
 	minX: PropTypes.number,
 	minY: PropTypes.number,
 });
 
-Polyline.defaultProps = Object.assign(FabricObject.defaultProps, {
+Polyline.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'polyline',
 	points: null,
 	minX: 0,

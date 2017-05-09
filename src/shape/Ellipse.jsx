@@ -2,7 +2,7 @@
 
 import {PropTypes} from 'react';
 import FabricObject from '../base/Object.jsx';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 
 export default class Ellipse extends FabricObject {
 	constructor(props, context) {
@@ -44,12 +44,12 @@ Ellipse.fromElement = (element, options) => fabric.Ellipse.fromElement(element, 
 Ellipse.fromObject = (object) => fabric.Ellipse.fromObject(object);
 Ellipse.attribute = fabric.Ellipse.ATTRIBUTE_NAMES;
 
-Ellipse.propTypes = Object.assign(FabricObject.propTypes, {
+Ellipse.propTypes = Object.assign({}, FabricObject.propTypes, {
 	rx: PropTypes.number,
 	ry: PropTypes.number,
 });
 
-Ellipse.defaultProps = Object.assign(FabricObject.defaultProps, {
+Ellipse.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	rx: 0,
 	ry: 0,
 	type: 'ellipse',

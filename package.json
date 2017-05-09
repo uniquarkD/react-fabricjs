@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "deep-diff": "~0.3.3",
-    "fabric-webpack": "~1.6.0-rc.1",
+    "fabric": "^1.6.6",
     "object-assign": "~4.0.1"
   },
   "devDependencies": {

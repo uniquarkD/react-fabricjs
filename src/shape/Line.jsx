@@ -2,7 +2,7 @@
 
 import {PropTypes} from 'react';
 import FabricObject from '../base/Object.jsx';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 
 export default class Line extends FabricObject {
 	constructor(props, context) {
@@ -41,14 +41,14 @@ Line.fromElement = (element, options) => fabric.Line.fromElement(element, option
 Line.fromObject = (object) => fabric.Line.fromObject(object);
 Line.attribute = fabric.Line.ATTRIBUTE_NAMES;
 
-Line.propTypes = Object.assign(FabricObject.propTypes, {
+Line.propTypes = Object.assign({}, FabricObject.propTypes, {
 	x1: PropTypes.number,
 	y1: PropTypes.number,
 	x2: PropTypes.number,
 	y2: PropTypes.number,
 });
 
-Line.defaultProps = Object.assign(FabricObject.defaultProps, {
+Line.defaultProps = Object.assign({}, FabricObject.defaultProps, {
 	type: 'line',
 	x1: 0,
 	y1: 0,

@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 import diff from 'deep-diff';
 import collection from './mixin/collection.js';
 import observable from './mixin/observable.js';
@@ -185,13 +185,22 @@ export default class StaticCanvas extends React.Component {
 
 					const key = child.ref ? child.ref : `layer${i}`;
 					const ref = this.ref[key];
-					ref.draw(obj => this.add(obj));
+					ref.draw(obj => {
+						// because this callback is called asynchronously, if multiple updates occur in quick
+						// succession then it's possible we'll attempt to remove an object (below) before it has been
+						// added (here) - the result of which is duplicate objects on the canvas
+						if (!obj.doNotAdd) {
+							this.add(obj);
+						}
+					});
 				}
 			);
 
 			Object.keys(this.prevRef).forEach(key => {
-				const ref = this.prevRef[key];
-				this.remove(ref.getObject());
+				const object = this.prevRef[key].getObject();
+				// in case this object hasn't actually been added yet, set a flag so that we don't add it later
+				object.doNotAdd = true;
+				this.remove(object);
 			});
 		}
 
@@ -277,19 +286,23 @@ export default class StaticCanvas extends React.Component {
 		return (
 			<div>
 				<canvas id={id} width={this.props.width} height={this.props.height}/>
-				{
-					this.state.canvas &&
-					React.Children.map(
-						children,
-						(child, i) => child && React.cloneElement(child, {
-							ref: c => {
-								if (c) {
-									this.ref[child.ref||`layer${i}`] = c;
-								}
-							},
-						})
-					)
-				}
+
+				<div>
+					{
+						this.state.canvas &&
+						React.Children.map(
+							children,
+							(child, i) => child && React.cloneElement(child, {
+								ref: c => {
+									if (c) {
+										this.ref[child.ref||`layer${i}`] = c;
+									}
+								},
+							})
+						)
+					}
+				</div>
+
 			</div>
 		);
 

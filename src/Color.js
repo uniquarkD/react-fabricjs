@@ -1,4 +1,4 @@
 'use strict';
 
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 export default fabric.Color;

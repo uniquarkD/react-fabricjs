@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import {fabric} from 'fabric-webpack';
+import {fabric} from 'fabric';
 import diff from 'deep-diff';
 import observable from '../mixin/observable.js';
 
