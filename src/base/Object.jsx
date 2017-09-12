@@ -377,7 +377,7 @@ FabricObject.propTypes = {
 	scaleX: PropTypes.number,
 	scaleY: PropTypes.number,
 	selectable: PropTypes.bool,
-	shadow: PropTypes.oneOfType([React.PropTypes.instanceOf(fabric.Shadow), PropTypes.string]),
+	shadow: PropTypes.oneOfType([PropTypes.instanceOf(fabric.Shadow), PropTypes.string]),
 	stateProperties: PropTypes.array,
 	stroke: PropTypes.string,
 	strokeDashArray: PropTypes.array,
