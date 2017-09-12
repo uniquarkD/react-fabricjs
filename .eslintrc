@@ -50,7 +50,7 @@
             "uninitialized": "always",
             "initialized": "never"
         }],
-        "indent": [2, "tab", {"SwitchCase": 1}],
+        "indent": [1, "tab", {"SwitchCase": 1}],
         "strict": 0,
         "react/display-name": 0,
         "react/jsx-no-undef": 2,
