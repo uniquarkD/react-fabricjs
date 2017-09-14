@@ -28,7 +28,7 @@ export default class Polyline extends FabricObject {
 		} else if (this.props.object instanceof Object) {
 			object = fabric.Polyline.fromObject(this.props.object);
 		} else {
-			object = new fabric.Polyline(this.props);
+			object = new fabric.Polyline(this.props.points, this.props);
 		}
 		super.draw(object, cb);
 	}

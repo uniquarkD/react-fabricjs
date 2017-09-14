@@ -31,7 +31,7 @@ export default class Polygon extends FabricObject {
 		} else if (this.props.object instanceof Object) {
 			object = fabric.Polygon.fromObject(this.props.object);
 		} else {
-			object = new fabric.Polygon(this.props);
+			object = new fabric.Polygon(this.props.points, this.props);
 		}
 		super.draw(object, cb);
 	}
