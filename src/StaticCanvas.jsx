@@ -228,18 +228,60 @@ export default class StaticCanvas extends React.Component {
 		if (this.props.beforeRender instanceof Function) {
 			canvas.on('before:render', this.props.beforeRender);
 		}
+        if (this.props.beforeSelectionCleared instanceof Function) {
+            canvas.on('before:selection:cleared', this.props.beforeSelectionCleared);
+        }
 		if (this.props.afterRender instanceof Function) {
 			canvas.on('after:render', this.props.afterRender);
 		}
 		if (this.props.onCanvasCleared instanceof Function) {
 			canvas.on('canvas:cleared', this.props.onCanvasCleared);
 		}
+        if (this.props.onMouseDown instanceof Function) {
+            canvas.on('mouse:down', this.props.onMouseDown);
+        }
+        if (this.props.onMouseMove instanceof Function) {
+            canvas.on('mouse:move', this.props.onMouseMove);
+        }
+        if (this.props.onMouseUp instanceof Function) {
+            canvas.on('mouse:up', this.props.onMouseUp);
+        }
+        if (this.props.onMouseOver instanceof Function) {
+            canvas.on('mouse:over', this.props.onMouseOver);
+        }
+        if (this.props.onMouseOut instanceof Function) {
+            canvas.on('mouse:out', this.props.onMouseOut);
+        }
+        if (this.props.onMouseDbclick instanceof Function) {
+            canvas.on('mouse:dbclick', this.props.onMouseDbclick);
+        }
 		if (this.props.onObjectAdded instanceof Function) {
 			canvas.on('object:added', this.props.onObjectAdded);
 		}
+        if (this.props.onObjectModified instanceof Function) {
+            canvas.on('object:modified', this.props.onObjectModified);
+        }
 		if (this.props.onObjectRemoved instanceof Function) {
 			canvas.on('object:removed', this.props.onObjectRemoved);
 		}
+        if (this.props.onObjectRotating instanceof Function) {
+            canvas.on('object:rotating', this.props.onObjectRotating);
+        }
+        if (this.props.onObjectMoving instanceof Function) {
+            canvas.on('object:moving', this.props.onObjectMoving);
+        }
+        if (this.props.onObjectScaling instanceof Function) {
+            canvas.on('object:scaling', this.props.onObjectScaling);
+        }
+        if (this.props.onObjectSelected instanceof Function) {
+            canvas.on('object:selected', this.props.onObjectSelected);
+        }
+        if (this.props.onPathCreated instanceof Function) {
+            canvas.on('path:created', this.props.onPathCreated);
+        }
+        if (this.props.onSelectionCleared instanceof Function) {
+            canvas.on('selection:cleared', this.props.onSelectionCleared);
+        }
 
 	}
 
@@ -253,6 +295,12 @@ export default class StaticCanvas extends React.Component {
 			canvas.on('before:render', this.props.beforeRender);
 		}
 
+        if (this.props.beforeSelectionCleared && !nextProps.beforeSelectionCleared) {
+            canvas.off('before:selection:cleared');
+        } else if (nextProps.beforeSelectionCleared instanceof Function) {
+            canvas.on('before:selection:cleared', this.props.beforeSelectionCleared);
+        }
+
 		if (this.props.afterRender && !nextProps.afterRender) {
 			object.off('after:render');
 		} else if (nextProps.afterRender instanceof Function) {
@@ -265,17 +313,96 @@ export default class StaticCanvas extends React.Component {
 			object.on('canvas:cleared', this.props.onCanvasCleared);
 		}
 
+        if (this.props.onMouseDown && !nextProps.onMouseDown) {
+            object.off('mouse:down');
+        } else if (nextProps.onMouseDown instanceof Function) {
+            object.on('mouse:down', this.props.onMouseDown);
+        }
+
+        if (this.props.onMouseMove && !nextProps.onMouseMove) {
+            object.off('mouse:move');
+        } else if (nextProps.onMouseMove instanceof Function) {
+            object.on('mouse:move', this.props.onMouseMove);
+        }
+
+        if (this.props.onMouseUp && !nextProps.onMouseUp) {
+            object.off('mouse:up');
+        } else if (nextProps.onMouseUp instanceof Function) {
+            object.on('mouse:up', this.props.onMouseUp);
+        }
+
+        if (this.props.onMouseOver && !nextProps.onMouseOver) {
+            object.off('mouse:over');
+        } else if (nextProps.onMouseOver instanceof Function) {
+            object.on('mouse:over', this.props.onMouseOver);
+        }
+
+        if (this.props.onMouseOut && !nextProps.onMouseOut) {
+            object.off('mouse:out');
+        } else if (nextProps.onMouseOut instanceof Function) {
+            object.on('mouse:out', this.props.onMouseOut);
+        }
+
+        if (this.props.onMouseDbclick && !nextProps.onMouseDbclick) {
+            object.off('mouse:dbclick');
+        } else if (nextProps.onMouseDbclick instanceof Function) {
+            object.on('mouse:dbclick', this.props.onMouseDbclick);
+        }
+
 		if (this.props.onObjectAdded && !nextProps.onObjectAdded) {
 			object.off('object:added');
 		} else if (nextProps.onObjectAdded instanceof Function) {
 			object.on('object:added', this.props.onObjectAdded);
 		}
 
+        if (this.props.onObjectModified && !nextProps.onObjectModified) {
+            object.off('object:modified');
+        } else if (nextProps.onObjectModified instanceof Function) {
+            object.on('object:modified', this.props.onObjectModified);
+        }
+
 		if (this.props.onObjectRemoved && !nextProps.onObjectRemoved) {
 			object.off('object:removed');
 		} else if (nextProps.onObjectRemoved instanceof Function) {
 			object.on('object:removed', this.props.onObjectRemoved);
 		}
+
+        if (this.props.onObjectRotating && !nextProps.onObjectRotating) {
+            object.off('object:rotating');
+        } else if (nextProps.onObjectRotating instanceof Function) {
+            object.on('object:rotating', this.props.onObjectRotating);
+        }
+
+        if (this.props.onObjectMoving && !nextProps.onObjectMoving) {
+            object.off('object:moving');
+        } else if (nextProps.onObjectMoving instanceof Function) {
+            object.on('object:moving', this.props.onObjectMoving);
+        }
+
+        if (this.props.onObjectScaling && !nextProps.onObjectScaling) {
+            object.off('object:scaling');
+        } else if (nextProps.onObjectScaling instanceof Function) {
+            object.on('object:scaling', this.props.onObjectScaling);
+        }
+
+        if (this.props.onObjectSelected && !nextProps.onObjectSelected) {
+            object.off('object:selected');
+        } else if (nextProps.onObjectSelected instanceof Function) {
+            object.on('object:selected', this.props.onObjectSelected);
+        }
+
+        if (this.props.onPathCreated && !nextProps.onPathCreated) {
+            object.off('path:created');
+        } else if (nextProps.onPathCreated instanceof Function) {
+            object.on('path:created', this.props.onPathCreated);
+        }
+
+        if (this.props.onSelectionCleared && !nextProps.onSelectionCleared) {
+            object.off('selection:cleared');
+        } else if (nextProps.onSelectionCleared instanceof Function) {
+            object.on('selection:cleared', this.props.onSelectionCleared);
+        }
+
 	}
 
 	getChild(ref) {
@@ -347,11 +474,26 @@ StaticCanvas.propTypes = {
 	]),
 
 	id: PropTypes.string,
-	beforeRender: PropTypes.func,
-	afterRender: PropTypes.func,
+    afterRender: PropTypes.func,
+    beforeRender: PropTypes.func,
+    beforeSelectionCleared: PropTypes.func,
 	onCanvasCleared: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    onMouseMove: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    onMouseOver: PropTypes.func,
+    onMouseOut: PropTypes.func,
+    onMouseDbclick: PropTypes.func,
 	onObjectAdded: PropTypes.func,
 	onObjectRemoved: PropTypes.func,
+    onObjectRotating: PropTypes.func,
+    onObjectMoving: PropTypes.func,
+	onObjectScaling: PropTypes.func,
+    onObjectSelected: PropTypes.func,
+    onObjectModified: PropTypes.func,
+    onPathCreated: PropTypes.func,
+    onSelectionCleared: PropTypes.func,
+
 };
 
 StaticCanvas.defaultProps = {

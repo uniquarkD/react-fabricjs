@@ -246,6 +246,9 @@ export default class FabricObject extends React.Component {
 		if (this.props.onSelected instanceof Function) {
 			object.on('selected', this.props.onSelected);
 		}
+        if (this.props.onDeSelected instanceof Function) {
+            object.on('deselected', this.props.onDeSelected);
+        }
 		if (this.props.onModified instanceof Function) {
 			object.on('modified', this.props.onModified);
 		}
@@ -258,13 +261,27 @@ export default class FabricObject extends React.Component {
 		if (this.props.onMoving instanceof Function) {
 			object.on('moving', this.props.onMoving);
 		}
+        if (this.props.onSkewing instanceof Function) {
+            object.on('skewing', this.props.onSkewing);
+        }
 		if (this.props.onMousedown instanceof Function) {
 			object.on('mousedown', this.props.onMousedown);
 		}
 		if (this.props.onMouseup instanceof Function) {
 			object.on('mouseup', this.props.onMouseup);
 		}
-
+        if (this.props.onMouseover instanceof Function) {
+            object.on('mouseover', this.props.onMouseover);
+        }
+        if (this.props.onMouseout instanceof Function) {
+            object.on('mouseout', this.props.onMouseout);
+        }
+        if (this.props.onMousewheel instanceof Function) {
+            object.on('mousewheel', this.props.onMousewheel);
+        }
+        if (this.props.onMousedbclick instanceof Function) {
+            object.on('mousedbclick', this.props.onMousedbclick);
+        }
 	}
 
 	eventChanged(nextProps) {
@@ -288,6 +305,12 @@ export default class FabricObject extends React.Component {
 		} else if (nextProps.onSelected instanceof Function) {
 			object.on('selected', this.props.onSelected);
 		}
+
+        if (this.props.onDeSelected && !nextProps.onDeSelected) {
+            object.off('deselected');
+        } else if (nextProps.onDeSelected instanceof Function) {
+            object.on('deselected', this.props.onDeSelected);
+        }
 
 		if (this.props.onModified && !nextProps.onModified) {
 			object.off('modified');
@@ -313,6 +336,12 @@ export default class FabricObject extends React.Component {
 			object.on('moving', this.props.onMoving);
 		}
 
+        if (this.props.onSkewing && !nextProps.onSkewing) {
+            object.off('skewing');
+        } else if (nextProps.onSkewing instanceof Function) {
+            object.on('skewing', this.props.onSkewing);
+        }
+
 		if (this.props.onMousedown && !nextProps.onMousedown) {
 			object.off('mousedown');
 		} else if (nextProps.onMousedown instanceof Function) {
@@ -324,6 +353,31 @@ export default class FabricObject extends React.Component {
 		} else if (nextProps.onMouseup instanceof Function) {
 			object.on('mouseup', this.props.onMouseup);
 		}
+
+        if (this.props.onMouseover && !nextProps.onMouseover) {
+            object.off('mouseover');
+        } else if (nextProps.onMouseover instanceof Function) {
+            object.on('mouseover', this.props.onMouseover);
+        }
+
+        if (this.props.onMouseout && !nextProps.onMouseout) {
+            object.off('mouseout');
+        } else if (nextProps.onMouseout instanceof Function) {
+            object.on('mouseout', this.props.onMouseout);
+        }
+
+        if (this.props.onMousewheel && !nextProps.onMousewheel) {
+            object.off('mousewheel');
+        } else if (nextProps.onMousewheel instanceof Function) {
+            object.on('mousewheel', this.props.onMousewheel);
+        }
+
+        if (this.props.onMousedbclick && !nextProps.onMousedbclick) {
+            object.off('mousedbclick');
+        } else if (nextProps.onMousedbclick instanceof Function) {
+            object.on('mousedbclick', this.props.onMousedbclick);
+        }
+
 	}
 
 	render() {
