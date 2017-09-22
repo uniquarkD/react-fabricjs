@@ -292,115 +292,134 @@ export default class StaticCanvas extends React.Component {
 		if (this.props.beforeRender && !nextProps.beforeRender) {
 			canvas.off('before:render');
 		} else if (nextProps.beforeRender instanceof Function) {
-			canvas.on('before:render', this.props.beforeRender);
+            canvas.off('before:render');
+            canvas.on('before:render', this.props.beforeRender);
 		}
 
         if (this.props.beforeSelectionCleared && !nextProps.beforeSelectionCleared) {
             canvas.off('before:selection:cleared');
         } else if (nextProps.beforeSelectionCleared instanceof Function) {
+            canvas.off('before:selection:cleared');
             canvas.on('before:selection:cleared', this.props.beforeSelectionCleared);
         }
 
 		if (this.props.afterRender && !nextProps.afterRender) {
-			object.off('after:render');
+			canvas.off('after:render');
 		} else if (nextProps.afterRender instanceof Function) {
-			object.on('after:render', this.props.afterRender);
+            canvas.off('after:render');
+            canvas.on('after:render', this.props.afterRender);
 		}
 
 		if (this.props.onCanvasCleared && !nextProps.onCanvasCleared) {
-			object.off('canvas:cleared');
+			canvas.off('canvas:cleared');
 		} else if (nextProps.onCanvasCleared instanceof Function) {
-			object.on('canvas:cleared', this.props.onCanvasCleared);
+            canvas.off('canvas:cleared');
+            canvas.on('canvas:cleared', this.props.onCanvasCleared);
 		}
 
         if (this.props.onMouseDown && !nextProps.onMouseDown) {
-            object.off('mouse:down');
+            canvas.off('mouse:down');
         } else if (nextProps.onMouseDown instanceof Function) {
-            object.on('mouse:down', this.props.onMouseDown);
+            canvas.off('mouse:down');
+            canvas.on('mouse:down', this.props.onMouseDown);
         }
 
         if (this.props.onMouseMove && !nextProps.onMouseMove) {
-            object.off('mouse:move');
+            canvas.off('mouse:move');
         } else if (nextProps.onMouseMove instanceof Function) {
-            object.on('mouse:move', this.props.onMouseMove);
+            canvas.off('mouse:move');
+            canvas.on('mouse:move', this.props.onMouseMove);
         }
 
         if (this.props.onMouseUp && !nextProps.onMouseUp) {
-            object.off('mouse:up');
+            canvas.off('mouse:up');
         } else if (nextProps.onMouseUp instanceof Function) {
-            object.on('mouse:up', this.props.onMouseUp);
+            canvas.off('mouse:up');
+            canvas.on('mouse:up', this.props.onMouseUp);
         }
 
         if (this.props.onMouseOver && !nextProps.onMouseOver) {
-            object.off('mouse:over');
+            canvas.off('mouse:over');
         } else if (nextProps.onMouseOver instanceof Function) {
-            object.on('mouse:over', this.props.onMouseOver);
+            canvas.off('mouse:over');
+            canvas.on('mouse:over', this.props.onMouseOver);
         }
 
         if (this.props.onMouseOut && !nextProps.onMouseOut) {
-            object.off('mouse:out');
+            canvas.off('mouse:out');
         } else if (nextProps.onMouseOut instanceof Function) {
-            object.on('mouse:out', this.props.onMouseOut);
+            canvas.off('mouse:out');
+            canvas.on('mouse:out', this.props.onMouseOut);
         }
 
         if (this.props.onMouseDbclick && !nextProps.onMouseDbclick) {
-            object.off('mouse:dbclick');
+            canvas.off('mouse:dbclick');
         } else if (nextProps.onMouseDbclick instanceof Function) {
-            object.on('mouse:dbclick', this.props.onMouseDbclick);
+            canvas.off('mouse:dbclick');
+            canvas.on('mouse:dbclick', this.props.onMouseDbclick);
         }
 
 		if (this.props.onObjectAdded && !nextProps.onObjectAdded) {
-			object.off('object:added');
+			canvas.off('object:added');
 		} else if (nextProps.onObjectAdded instanceof Function) {
-			object.on('object:added', this.props.onObjectAdded);
+            canvas.off('object:added');
+            canvas.on('object:added', this.props.onObjectAdded);
 		}
 
         if (this.props.onObjectModified && !nextProps.onObjectModified) {
-            object.off('object:modified');
+            canvas.off('object:modified');
         } else if (nextProps.onObjectModified instanceof Function) {
-            object.on('object:modified', this.props.onObjectModified);
+            canvas.off('object:modified');
+            canvas.on('object:modified', this.props.onObjectModified);
         }
 
 		if (this.props.onObjectRemoved && !nextProps.onObjectRemoved) {
-			object.off('object:removed');
+			canvas.off('object:removed');
 		} else if (nextProps.onObjectRemoved instanceof Function) {
-			object.on('object:removed', this.props.onObjectRemoved);
+            canvas.off('object:removed');
+            canvas.on('object:removed', this.props.onObjectRemoved);
 		}
 
         if (this.props.onObjectRotating && !nextProps.onObjectRotating) {
-            object.off('object:rotating');
+            canvas.off('object:rotating');
         } else if (nextProps.onObjectRotating instanceof Function) {
-            object.on('object:rotating', this.props.onObjectRotating);
+            canvas.off('object:rotating');
+            canvas.on('object:rotating', this.props.onObjectRotating);
         }
 
         if (this.props.onObjectMoving && !nextProps.onObjectMoving) {
-            object.off('object:moving');
+            canvas.off('object:moving');
         } else if (nextProps.onObjectMoving instanceof Function) {
-            object.on('object:moving', this.props.onObjectMoving);
+            canvas.off('object:moving');
+            canvas.on('object:moving', this.props.onObjectMoving);
         }
 
         if (this.props.onObjectScaling && !nextProps.onObjectScaling) {
-            object.off('object:scaling');
+            canvas.off('object:scaling');
         } else if (nextProps.onObjectScaling instanceof Function) {
-            object.on('object:scaling', this.props.onObjectScaling);
+            canvas.off('object:scaling');
+            canvas.on('object:scaling', this.props.onObjectScaling);
         }
 
         if (this.props.onObjectSelected && !nextProps.onObjectSelected) {
-            object.off('object:selected');
+            canvas.off('object:selected');
         } else if (nextProps.onObjectSelected instanceof Function) {
-            object.on('object:selected', this.props.onObjectSelected);
+            canvas.off('object:selected');
+            canvas.on('object:selected', this.props.onObjectSelected);
         }
 
         if (this.props.onPathCreated && !nextProps.onPathCreated) {
-            object.off('path:created');
+            canvas.off('path:created');
         } else if (nextProps.onPathCreated instanceof Function) {
-            object.on('path:created', this.props.onPathCreated);
+            canvas.off('path:created');
+            canvas.on('path:created', this.props.onPathCreated);
         }
 
         if (this.props.onSelectionCleared && !nextProps.onSelectionCleared) {
-            object.off('selection:cleared');
+            canvas.off('selection:cleared');
         } else if (nextProps.onSelectionCleared instanceof Function) {
-            object.on('selection:cleared', this.props.onSelectionCleared);
+            canvas.off('selection:cleared');
+            canvas.on('selection:cleared', this.props.onSelectionCleared);
         }
 
 	}
@@ -411,6 +430,7 @@ export default class StaticCanvas extends React.Component {
 
 	render() {
 		const {id, children} = this.props;
+
 		return (
 			<div>
 				<canvas id={id} width={this.props.width} height={this.props.height}/>
