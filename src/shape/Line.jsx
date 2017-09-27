@@ -30,7 +30,9 @@ export default class Line extends FabricObject {
 		} else if (this.props.object instanceof Object) {
 			object = fabric.Line.fromObject(this.props.object);
 		} else {
-			object = new fabric.Line(this.props);
+			const {x1, y1, x2, y2} = this.props;
+			const coords = [x1, y1, x2, y2];
+			object = new fabric.Line(coords, this.props);
 		}
 		super.draw(object, cb);
 	}
