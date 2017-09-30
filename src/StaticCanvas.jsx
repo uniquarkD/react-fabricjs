@@ -127,7 +127,7 @@ export default class StaticCanvas extends React.Component {
 	}
 
 	componentDidMount() {
-		const canvas = new fabric.Canvas(this.props.id);
+		const canvas = new fabric.Canvas(this.props.id,  { selection: this.props.selection });
 
 		this.setState({canvas}, () => {
 			this.initEvent.call(this);
