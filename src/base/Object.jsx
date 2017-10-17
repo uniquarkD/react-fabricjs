@@ -228,7 +228,6 @@ export default class FabricObject extends React.Component {
 	draw(object, cb) {
 		this.setState({object}, () => {
 			cb && cb(object);
-			// canvas.add(object);
 			this.initEvent();
 		});
 	}
