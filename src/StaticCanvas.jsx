@@ -197,12 +197,14 @@ export default class StaticCanvas extends React.Component {
 				}
 			);
 
-			Object.keys(this.prevRef).forEach(key => {
-				const object = this.prevRef[key].getObject();
-				// in case this object hasn't actually been added yet, set a flag so that we don't add it later
-				object.doNotAdd = true;
-				this.remove(object);
-			});
+			if (this.prevRef !== undefined) {
+                Object.keys(this.prevRef).forEach(key => {
+                    const object = this.prevRef[key].getObject();
+                    // in case this object hasn't actually been added yet, set a flag so that we don't add it later
+                    object.doNotAdd = true;
+                    this.remove(object);
+                });
+			}
 		}
 
 		this.state.canvas && this.state.canvas.renderAll();
@@ -513,7 +515,6 @@ StaticCanvas.propTypes = {
     onObjectModified: PropTypes.func,
     onPathCreated: PropTypes.func,
     onSelectionCleared: PropTypes.func,
-
 };
 
 StaticCanvas.defaultProps = {
